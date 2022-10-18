@@ -118,11 +118,11 @@ dataset = edict()
 
 dataset.emore = edict()
 dataset.emore.dataset = 'emore'
-dataset.emore.dataset_path = '/data/zwh/1.FaceRecognition/2.Dataset/2.PaidOnData/1.TrainData/pack3'
-dataset.emore.num_classes = 623
+dataset.emore.dataset_path = '/content/gdrive/MyDrive/insightface/dataset/lfw_masked'
+dataset.emore.num_classes = 4030
 dataset.emore.image_shape = (112,112,3)
 #dataset.emore.val_targets = ['lfw','cfp_ff','cfp_fp', 'agedb_30','shunde']
-dataset.emore.val_targets = ['lfw','shunde']
+dataset.emore.val_targets = ['lfw_masked']
 
 dataset.retina = edict()
 dataset.retina.dataset = 'retina'
@@ -191,8 +191,8 @@ default = edict()
 # default network
 default.network = 'y1'
 #default.pretrained = ''
-default.pretrained = '../models/my/model-y1-test2/model'
-default.pretrained_epoch = 9
+default.pretrained = '/content/gdrive/MyDrive/insightface/model/model-r100-ii/model'
+default.pretrained_epoch = 0
 # default dataset
 default.dataset = 'emore'
 default.loss = 'arcface'
@@ -204,7 +204,7 @@ default.end_epoch = 100000 # 结束的epoch
 default.lr = 0.000001 # 初始学习率，如果每个批次训练的数目小，学习率也相应的降低
 default.wd = 0.0005 # 大概是权重初始化波动的范围
 default.mom = 0.9
-default.per_batch_size = 240 # 每存在一个GPU，训练48个批次，如两个GPU，则实际训练的batch_size为96
+default.per_batch_size = 48 # 每存在一个GPU，训练48个批次，如两个GPU，则实际训练的batch_size为96
 default.ckpt = -1 # 该设置为2，每次评估的时候都会保存模型
 #default.lr_steps = '10000,160000,220000'  # 每达到步数，学习率变为原来的百分之十
 default.lr_steps = '20000,50000,100000'  # 每达到步数，学习率变为原来的百分之十

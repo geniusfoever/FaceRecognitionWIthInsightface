@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9143b7b-8d4a-4db3-ae7e-5f2310dd0b41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readme_my.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/face2rec_my.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/insightface-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/insightface-master.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/align/align_my.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/align/align_my.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recognition/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +309,7 @@
       <workItem from="1664967976335" duration="1174000" />
       <workItem from="1665987821068" duration="5997000" />
       <workItem from="1666079243687" duration="7151000" />
-      <workItem from="1666097511566" duration="513000" />
+      <workItem from="1666097511566" duration="2590000" />
     </task>
     <servers />
   </component>
