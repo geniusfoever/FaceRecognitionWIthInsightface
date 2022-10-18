@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from scipy import misc
+
 import sys
 import os
 import argparse
@@ -12,9 +12,10 @@ import numpy as np
 import detect_face
 import random
 from time import sleep
+from insightface.app import FaceAnalysis
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
-import face_image
+
 import src.common.face_preprocess as face_preprocess
 from skimage import transform as trans
 import cv2
@@ -97,12 +98,8 @@ def main(args):
 
     print('Creating networks and loading parameters')
 
-    with tf.Graph().as_default():
-        # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_memory_fraction)
-        # sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
-        sess = tf.Session()
-        with sess.as_default():
-            pnet, rnet, onet = detect_face.create_mtcnn(sess, None)
+    app = FaceAnalysis(providers=['CUDAExecutionProvider'], allowed_modules=['detection'])
+    app.prepare(ctx_id=0, det_size=(640, 640))
 
     minsize = 60
     threshold = [0.6, 0.85, 0.8]
@@ -131,7 +128,8 @@ def main(args):
             continue
         # print(image_path)
         try:
-            img = misc.imread(src_img_path)
+            img = cv2.imread(src_img_path)
+
         except (IOError, ValueError, IndexError) as e:
             errorMessage = '{}: {}'.format(src_img_path, e)
             print(errorMessage)
@@ -149,23 +147,38 @@ def main(args):
             #print(src_img_path_list)
             if len(src_img_path_list) <= 1:
                 target_dir = args.outdir
-            elif len(src_img_path_list) ==2:
+            elif len(src_img_path_list) >=2:
                 src_img_path_prefix = src_img_path_list[:-1]
-                target_dir = os.path.join(args.outdir, str(src_img_path_prefix[0]))
-            else:
-                src_img_path_prefix = ['/'.join(bar) for bar in src_img_path_list[:-1]]
-
-                #print('src_img_path_prefix: ',src_img_path_prefix)
-                target_dir = os.path.join(args.outdir, str(src_img_path_prefix[0]))
+                target_dir = os.path.join(args.outdir, "/".join(src_img_path_prefix))
             #print(target_dir)
             if not os.path.exists(target_dir):
-                os.makedirs(target_dir)
+                os.makedirs(target_dir,exist_ok=True)
 
             _minsize = minsize
             _bbox = None
             _landmark = None
 
-            bounding_boxes, points = detect_face.detect_face(img, _minsize, pnet, rnet, onet, threshold, factor)
+            width=img.shape[1]
+            height=img.shape[0]
+            if face_count==0:
+                print("Width: {} Height: {}".format(width,height))
+            faces = app.get(img)
+            if not faces:
+                continue
+            if len(faces)>1:
+
+                min_distance_to_centre = 100000
+                face=None
+                for f in faces:
+                    bbox = f.bbox
+                    distance = (bbox[0] + 0.5 * bbox[2] - 0.5*width) ** 2 + (bbox[1] + 0.5 * bbox[3] - 0.5*height) ** 2
+                    if distance < min_distance_to_centre:
+                        min_distance_to_centre = distance
+                        face=f
+            else: face=faces[0]
+
+            bounding_boxe=face.bbox
+            points=face.kps
             print()
 
             #print(points)
@@ -175,15 +188,13 @@ def main(args):
                 _landmark = points.T
 
             #print(_landmark.shape)
-            faces_sumnum = bounding_boxes.shape[0]
-            for  num  in  range(faces_sumnum):
-                warped = face_preprocess.preprocess(img, bbox=bounding_boxes[num], landmark=_landmark[num].reshape([2,5]).T, image_size=args.image_size)
-                bgr = warped[..., ::-1]
-                #cv2.imshow(str(num),bgr)
-                target_file = os.path.join(target_dir, '%04d.jpg'%face_count)
-                #print(target_file)
-                cv2.imwrite(target_file,bgr)
-                face_count += 1
+            warped = face_preprocess.preprocess(img, bbox=bounding_boxe, landmark=_landmark.reshape([2,5]).T, image_size=args.image_size)
+
+            #cv2.imshow(str(num),bgr)
+            target_file = os.path.join(target_dir, '%04d.jpg'%face_count)
+            face_count+=1
+            #print(target_file)
+            cv2.imwrite(target_file,warped)
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
