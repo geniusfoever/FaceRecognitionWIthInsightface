@@ -118,7 +118,7 @@ dataset = edict()
 
 dataset.emore = edict()
 dataset.emore.dataset = 'emore'
-dataset.emore.dataset_path = '/content/gdrive/MyDrive/insightface/dataset/lfw_masked/train'
+dataset.emore.dataset_path = '/content/gdrive/MyDrive/insightface/dataset/lfw_masked/'
 dataset.emore.num_classes = 4030
 dataset.emore.image_shape = (112,112,3)
 #dataset.emore.val_targets = ['lfw','cfp_ff','cfp_fp', 'agedb_30','shunde']
