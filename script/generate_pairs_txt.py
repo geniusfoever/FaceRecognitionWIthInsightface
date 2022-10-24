@@ -9,8 +9,8 @@ import re
 '''
 import random
 # 图片数据文件夹
-INPUT_DATA = '/data/zwh/1.FaceRecognition/2.Dataset/2.PaidOnData/2.DataDivi/1.Shunde/5.dataset_divi/pack3/test'
-pairs_file_path = '/data/zwh/1.FaceRecognition/2.Dataset/2.PaidOnData/2.DataDivi/1.Shunde/5.dataset_divi/pack3/test/pairs.txt'
+INPUT_DATA = 'D:/database/51/lfw_masked/test'
+pairs_file_path = 'D:/database/51/lfw_masked/pairs.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
@@ -19,52 +19,65 @@ id_nums = len(idsdir_list)
 
 def produce_same_pairs():
     matched_result = []  # 不同类的匹配对
-    for j in range(6000):
+    for dir_name in rootdir_list:
         id_int= random.randint(0,id_nums-1)
 
-        id_dir = os.path.join(INPUT_DATA, '%08d'% id_int)
+        id_dir = os.path.join(INPUT_DATA, dir_name)
 
         id_imgs_list = os.listdir(id_dir)
 
         id_list_len = len(id_imgs_list)
+        if id_list_len<=1: continue
 
-        id1_img_file = id_imgs_list[random.randint(0,id_list_len-1)]
-        id2_img_file = id_imgs_list[random.randint(0,id_list_len-1)]
+        for img_id1 in range(id_list_len-1):
+            for img_id2 in range(img_id1+1,id_list_len):
+                id1_img_file = id_imgs_list[img_id1]
 
-        id1_path = os.path.join(id_dir, id1_img_file)
-        id2_path = os.path.join(id_dir, id2_img_file)
+                id2_img_file = id_imgs_list[img_id2]
 
-        same = 1
-        #print([id1_path + '\t' + id2_path + '\t',same])
-        matched_result.append((id1_path + '\t' + id2_path + '\t',same))
+                id1_path = os.path.join(id_dir, id1_img_file)
+                id2_path = os.path.join(id_dir, id2_img_file)
+
+                same = 1
+                #print([id1_path + '\t' + id2_path + '\t',same])
+                matched_result.append((id1_path + '\t' + id2_path + '\t',same))
+
     return matched_result
 
 
 def produce_unsame_pairs():
     unmatched_result = []  # 不同类的匹配对
-    for j in range(6000):
-        id1_int = random.randint(0,id_nums-1)
-        id2_int = random.randint(0,id_nums-1)
-        while id1_int == id2_int:
+
+    for dir_name1 in rootdir_list:
+        for dir_name2 in rootdir_list:
+            if dir_name2==dir_name1: continue
+
             id1_int = random.randint(0,id_nums-1)
             id2_int = random.randint(0,id_nums-1)
+            while id1_int == id2_int:
+                id1_int = random.randint(0,id_nums-1)
+                id2_int = random.randint(0,id_nums-1)
 
-        id1_dir = os.path.join(INPUT_DATA, '%08d'% id1_int)
-        id2_dir = os.path.join(INPUT_DATA, '%08d'% id2_int)
+            id1_dir = os.path.join(INPUT_DATA, dir_name1)
+            id2_dir = os.path.join(INPUT_DATA, dir_name2)
 
-        id1_imgs_list = os.listdir(id1_dir)
-        id2_imgs_list = os.listdir(id2_dir)
-        id1_list_len = len(id1_imgs_list)
-        id2_list_len = len(id2_imgs_list)
+            id1_imgs_list = os.listdir(id1_dir)
+            id2_imgs_list = os.listdir(id2_dir)
+            id1_list_len = len(id1_imgs_list)
+            id2_list_len = len(id2_imgs_list)
 
-        id1_img_file = id1_imgs_list[random.randint(0, id1_list_len-1)]
-        id2_img_file = id2_imgs_list[random.randint(0, id2_list_len-1)]
 
-        id1_path = os.path.join(id1_dir, id1_img_file)
-        id2_path = os.path.join(id2_dir, id2_img_file)
+            for img_id1 in range(id1_list_len):
+                for img_id2 in range(id2_list_len):
+                    id1_img_file = id1_imgs_list[img_id1]
 
-        same = 0
-        unmatched_result.append((id1_path + '\t' + id2_path + '\t',same))
+                    id2_img_file = id2_imgs_list[img_id2]
+
+                    id1_path = os.path.join(id1_dir, id1_img_file)
+                    id2_path = os.path.join(id2_dir, id2_img_file)
+
+                    same = 0
+                    unmatched_result.append((id1_path + '\t' + id2_path + '\t',same))
     return unmatched_result
 
 

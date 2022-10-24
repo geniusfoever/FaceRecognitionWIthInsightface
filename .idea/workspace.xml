@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9143b7b-8d4a-4db3-ae7e-5f2310dd0b41" name="Default Changelist" comment="">
+    <list default="true" id="a9143b7b-8d4a-4db3-ae7e-5f2310dd0b41" name="Default Changelist" comment="best">
+      <change afterPath="$PROJECT_DIR$/script/generate_pairs_txt_random.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/im2lst_my.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/im_lst2rec_my.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/rec2img_my.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/insightface-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/insightface-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recognition/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme_my.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme_my.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/generate_pairs_txt.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/generate_pairs_txt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/mydata2pack.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/mydata2pack.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +42,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../Conda/envs/if/Lib/random.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,6 +59,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Github/FaceRecognitionWIthInsightface/script&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -58,11 +70,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\FaceRecognitionWIthInsightface\script" />
       <recent name="Z:\zwh\1.FaceRecognition\1.insightface-master\models\my\model-y1-test2" />
       <recent name="Z:\zwh\1.FaceRecognition\1.insightface-master\models" />
       <recent name="Z:\zwh\1.FaceRecognition\1.insightface-master\recognition\models\y1-arcface-emore" />
       <recent name="E:\1.PaidOn\1.FaceRecognition\1.Insightface\insightface-master\models\my\model-y1-test2" />
-      <recent name="E:\1.PaidOn\1.FaceRecognition\1.Insightface\insightface-master\models\model-y1-test2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\zwh\1.FaceRecognition\1.insightface-master\recognition" />
@@ -70,7 +82,7 @@
       <recent name="D:\03.work\02.development\04.PaidOn\1.FaceRecognition\1.Insightface\insightface-master\script" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.face2rec_my">
+  <component name="RunManager" selected="Python.rec2img_my">
     <configuration name="align_my" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="insightface-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,28 +105,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="data_preproce" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="insightface-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/data_preproce.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="face2rec_my" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="insightface-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,7 +119,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/face2rec_my.py" />
-      <option name="PARAMETERS" value="--root $PROJECT_DIR$/../../DataBase/51/lfw_masked/ --prefix $PROJECT_DIR$/../../DataBase/51/lfw_masked/lfw_masked.lst" />
+      <option name="PARAMETERS" value="--root $PROJECT_DIR$/../../DataBase/51/lfw_output/train --prefix $PROJECT_DIR$/../../DataBase/51/lfw_output/train.lst" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -151,6 +141,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/generate_pairs_txt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_pairs_txt_random" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="insightface-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/generate_pairs_txt_random.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,21 +193,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="rec2img_my" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="insightface-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="CUDA_VISIBLE_DEVICES" value="" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/recognition" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognition/train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/rec2img_my.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,7 +215,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="verification" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="rec2img_my" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="insightface-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -212,12 +223,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/recognition/eval" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognition/eval/verification.py" />
+      <option name="SCRIPT_NAME" value="D:\Github\FaceRecognitionWIthInsightface\script\rec2img_my.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,19 +240,17 @@
     <list>
       <item itemvalue="Python.face2rec_my" />
       <item itemvalue="Python.align_my" />
+      <item itemvalue="Python.rec2img_my" />
+      <item itemvalue="Python.generate_pairs_txt_random" />
       <item itemvalue="Python.mydata2pack" />
-      <item itemvalue="Python.train" />
-      <item itemvalue="Python.verification" />
-      <item itemvalue="Python.data_preproce" />
       <item itemvalue="Python.generate_pairs_txt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.train" />
-        <item itemvalue="Python.generate_pairs_txt" />
-        <item itemvalue="Python.data_preproce" />
-        <item itemvalue="Python.verification" />
+        <item itemvalue="Python.rec2img_my" />
         <item itemvalue="Python.mydata2pack" />
+        <item itemvalue="Python.generate_pairs_txt" />
+        <item itemvalue="Python.generate_pairs_txt_random" />
       </list>
     </recent_temporary>
   </component>
@@ -307,8 +316,37 @@
       <workItem from="1664967976335" duration="1174000" />
       <workItem from="1665987821068" duration="5997000" />
       <workItem from="1666079243687" duration="7151000" />
-      <workItem from="1666097511566" duration="3408000" />
+      <workItem from="1666097511566" duration="5594000" />
+      <workItem from="1666153227454" duration="5279000" />
+      <workItem from="1666188049271" duration="1149000" />
+      <workItem from="1666234706870" duration="5543000" />
+      <workItem from="1666244579306" duration="2112000" />
+      <workItem from="1666350396701" duration="1215000" />
+      <workItem from="1666526566810" duration="5248000" />
+      <workItem from="1666578158268" duration="5506000" />
     </task>
+    <task id="LOCAL-00001" summary="better">
+      <created>1666100979156</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666100979156</updated>
+    </task>
+    <task id="LOCAL-00002" summary="better">
+      <created>1666101072307</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666101072307</updated>
+    </task>
+    <task id="LOCAL-00003" summary="best">
+      <created>1666101211804</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666101211805</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +362,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="better" />
+    <MESSAGE value="bettere" />
+    <MESSAGE value="best" />
+    <option name="LAST_COMMIT_MESSAGE" value="best" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,10 +391,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$mydata2pack.coverage" NAME="mydata2pack Coverage Results" MODIFIED="1666528312861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$rec2img_my.coverage" NAME="rec2img_my Coverage Results" MODIFIED="1666584742670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$align_my.coverage" NAME="align_my Coverage Results" MODIFIED="1666004215878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/align" />
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$rec2img_my2.coverage" NAME="rec2img_my2 Coverage Results" MODIFIED="1666582828318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$my_dataset_clean.coverage" NAME="my_dataset_clean Coverage Results" MODIFIED="1566290736238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$lfw2pack.coverage" NAME="lfw2pack Coverage Results" MODIFIED="1567644841461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data" />
     <SUITE FILE_PATH="coverage/insightface_master$align_celeb.coverage" NAME="align_celeb Coverage Results" MODIFIED="1565925775668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/align" />
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$generate_pairs_txt_random.coverage" NAME="generate_pairs_txt_random Coverage Results" MODIFIED="1666245458407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$faces_classer.coverage" NAME="faces_classer Coverage Results" MODIFIED="1568078088906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$align_lfw.coverage" NAME="align_lfw Coverage Results" MODIFIED="1566734128032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/align" />
     <SUITE FILE_PATH="coverage/insightface_master$train_softmax.coverage" NAME="train_softmax Coverage Results" MODIFIED="1565917990660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
@@ -370,7 +418,7 @@
     <SUITE FILE_PATH="coverage/insightface_master$generate_pairs_txt.coverage" NAME="generate_pairs_txt Coverage Results" MODIFIED="1568098374511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$delete_same_face.coverage" NAME="delete_same_face Coverage Results" MODIFIED="1567580558335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$generate_pairs_txt3.coverage" NAME="generate_pairs_txt3 Coverage Results" MODIFIED="1567646808311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
-    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$face2rec_my.coverage" NAME="face2rec_my Coverage Results" MODIFIED="1666097629033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data" />
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$face2rec_my.coverage" NAME="face2rec_my Coverage Results" MODIFIED="1666156520612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data" />
     <SUITE FILE_PATH="coverage/insightface_master$dataset_clean__1_.coverage" NAME="dataset_clean (1) Coverage Results" MODIFIED="1566461943605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$train.coverage" NAME="train Coverage Results" MODIFIED="1568160378643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recognition" />
     <SUITE FILE_PATH="coverage/insightface_master$cfp_make_bin.coverage" NAME="cfp_make_bin Coverage Results" MODIFIED="1565949672569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data" />
@@ -388,5 +436,6 @@
     <SUITE FILE_PATH="coverage/insightface_master$img2rec.coverage" NAME="img2rec Coverage Results" MODIFIED="1567585149892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data" />
     <SUITE FILE_PATH="coverage/insightface_master$im2rec.coverage" NAME="im2rec Coverage Results" MODIFIED="1568098386743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/insightface_master$generate_pairs_txt2.coverage" NAME="generate_pairs_txt2 Coverage Results" MODIFIED="1567659116498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/FaceRecognitionWIthInsightface$generate_pairs_txt.coverage" NAME="generate_pairs_txt Coverage Results" MODIFIED="1666527823069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
   </component>
 </project>

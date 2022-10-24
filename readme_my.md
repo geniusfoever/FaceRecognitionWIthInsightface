@@ -11,6 +11,8 @@ src/data/face2rec_my.py
 Same python file as above
 --root D:/DataBase/51/lfw_output/ --prefix D:/DataBase/51/lfw_output**[.lst]**
 
+# .lst .rec to Image Folders
+script/rec2img_my.py
 
 # Add Mask
 MaskTheFace/mask_the_face.py
