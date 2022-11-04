@@ -9,9 +9,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'eval'))
 
 parser = argparse.ArgumentParser(description='Package LFW images')
 # general
-parser.add_argument('--data-dir', default='D:/database/51/lfw_masked/', help='')
+parser.add_argument('--data-dir', default='D:/database/51/lfw_output/', help='')
 parser.add_argument('--image-size', type=str, default='112,112', help='')
-parser.add_argument('--output', default='D:/database/51/lfw_masked/test.bin', help='path to save.')
+parser.add_argument('--output', default='D:/database/51/lfw_output/test.bin', help='path to save.')
 args = parser.parse_args()
 lfw_dir = args.data_dir
 image_size = [int(x) for x in args.image_size.split(',')]

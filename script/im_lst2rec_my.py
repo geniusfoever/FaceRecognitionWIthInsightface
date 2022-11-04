@@ -281,8 +281,8 @@ def parse_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description='Create an image list or \
         make a record database by reading from an image list')
-    parser.add_argument('prefix', help='prefix of input/output lst and rec files.')
-    parser.add_argument('root', help='path to folder containing images.')
+    parser.add_argument('--prefix', help='prefix of input/output lst and rec files.')
+    parser.add_argument('--root', help='path to folder containing images.')
 
     cgroup = parser.add_argument_group('Options for creating image lists')
     cgroup.add_argument('--list', action='store_true',
