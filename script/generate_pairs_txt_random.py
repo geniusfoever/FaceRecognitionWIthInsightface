@@ -17,12 +17,12 @@ rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
 
 id_nums = len(idsdir_list)
-mask_probability=1
+mask_probability=0.8
 blur_probaility=0.3
 brightness_contrast_probability=0.2
 def produce_same_pairs():
     matched_result = []  # 不同类的匹配对
-    for j in tqdm(range(6000)):
+    while(len(matched_result)<6000):
         id_int = random.randint(0, id_nums - 1)
 
         id_dir = os.path.join(INPUT_DATA, idsdir_list[id_int])
@@ -69,7 +69,7 @@ def produce_unsame_pairs():
     unmatched_result = []  # 不同类的匹配对
 
 
-    for j in tqdm(range(6000)):
+    while(len(unmatched_result)<6000):
         id1_int = random.randint(0, id_nums - 1)
         id2_int = random.randint(0, id_nums - 1)
         while id1_int == id2_int:
@@ -120,6 +120,7 @@ all_result = same_result + unsame_result
 
 random.shuffle(all_result)
 #print(all_result)
+print(len(all_result))
 
 file = open(pairs_file_path, 'w')
 for line in all_result:
