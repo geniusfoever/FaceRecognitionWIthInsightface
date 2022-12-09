@@ -10,7 +10,7 @@ import re
 import random
 from tqdm import tqdm
 # 图片数据文件夹
-INPUT_DATA = 'D:/database/51/lfw_output/test'
+INPUT_DATA = 'D:/database/51/lfw_output/train'
 pairs_file_path = 'D:/database/51/lfw_output/pairs.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
@@ -22,7 +22,7 @@ blur_probaility=0.3
 brightness_contrast_probability=0.2
 def produce_same_pairs():
     matched_result = []  # 不同类的匹配对
-    while(len(matched_result)<6000):
+    while(len(matched_result)<12000):
         id_int = random.randint(0, id_nums - 1)
 
         id_dir = os.path.join(INPUT_DATA, idsdir_list[id_int])
@@ -37,17 +37,23 @@ def produce_same_pairs():
 
         id1_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
         id2_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
-        while id1_img_file==id2_img_file:
+
+        same_i=0
+
+        for _ in range(10):
             id1_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
             id2_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
+            if id1_img_file==id2_img_file: break
+        else: continue
 
         for _ in range(10):
             a = id1_img_file + ((100000000 if random.random() < mask_probability else 0) +
-                                (200000000 if random.random() < blur_probaility else 0) +
-                                (400000000 if random.random() < brightness_contrast_probability else 0))
+                                (200000000 if random.random() < blur_probaility else
+                                 (400000000 if random.random() < brightness_contrast_probability else 0)))
             if a in imgs_index_list:
                 id1_img_file = a
                 break
+        else: continue
         id1_name = str(id1_img_file)
         id2_name = str(id2_img_file)
         id1_name = id1_name if len(id1_name) >= 4 else (4 - len(id1_name)) * '0' + id1_name
@@ -69,7 +75,7 @@ def produce_unsame_pairs():
     unmatched_result = []  # 不同类的匹配对
 
 
-    while(len(unmatched_result)<6000):
+    while(len(unmatched_result)<12000):
         id1_int = random.randint(0, id_nums - 1)
         id2_int = random.randint(0, id_nums - 1)
         while id1_int == id2_int:
@@ -95,11 +101,12 @@ def produce_unsame_pairs():
         id2_img_file = id2_imgs_list[random.randint(0, id2_list_len - 1) if id2_list_len>1 else 0]
         for _ in range(10):
             a = id1_img_file+((100000000 if random.random() < mask_probability else 0) +
-                          (200000000 if random.random() < blur_probaility else 0) +
-                          (400000000 if random.random() < brightness_contrast_probability else 0))
+                          (200000000 if random.random() < blur_probaility else (400000000 if random.random() < brightness_contrast_probability else 0))
+                          )
             if a in imgs_index_list:
                 id1_img_file=a
                 break
+        else: continue
         id1_name=str(id1_img_file)
         id2_name=str(int(id2_img_file.split('.')[0])%100000000)
         id1_name=id1_name if len(id1_name)>=4 else (4-len(id1_name))*'0'+id1_name
@@ -112,19 +119,19 @@ def produce_unsame_pairs():
         unmatched_result.append((id1_path + '\t' + id2_path + '\t', same))
     return unmatched_result
 
+if __name__=="__main__":
+    same_result = produce_same_pairs()
+    unsame_result = produce_unsame_pairs()
 
-same_result = produce_same_pairs()
-unsame_result = produce_unsame_pairs()
+    all_result = same_result + unsame_result
 
-all_result = same_result + unsame_result
+    random.shuffle(all_result)
+    #print(all_result)
+    print(len(all_result))
 
-random.shuffle(all_result)
-#print(all_result)
-print(len(all_result))
+    file = open(pairs_file_path, 'a')
+    for line in all_result:
+        file.write(line[0] + str(line[1]) + '\n')
 
-file = open(pairs_file_path, 'w')
-for line in all_result:
-    file.write(line[0] + str(line[1]) + '\n')
-
-file.close()
+    file.close()
 

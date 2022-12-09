@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='Package LFW images')
 # general
 parser.add_argument('--data-dir', default='D:/database/51/lfw_output/', help='')
 parser.add_argument('--image-size', type=str, default='112,112', help='')
-parser.add_argument('--output', default='D:/database/51/lfw_output/test.bin', help='path to save.')
+parser.add_argument('--output', default='D:/database/51/lfw_output/validation.bin', help='path to save.')
 args = parser.parse_args()
 lfw_dir = args.data_dir
 image_size = [int(x) for x in args.image_size.split(',')]
@@ -55,25 +55,25 @@ def get_paths(data_dir, pairs, file_ext):
 
 
 
+if __name__=="__main__":
+  data_pairs = read_pairs(os.path.join(lfw_dir, 'pairs.txt'))
+  data_paths, issame_list = get_paths(lfw_dir, data_pairs, 'jpg')
+  print(len(data_paths))
+  print(len(issame_list))
 
-data_pairs = read_pairs(os.path.join(lfw_dir, 'pairs.txt'))
-data_paths, issame_list = get_paths(lfw_dir, data_pairs, 'jpg')
-print(len(data_paths))
-print(len(issame_list))
+  lfw_bins = []
+  #lfw_data = nd.empty((len(lfw_paths), 3, image_size[0], image_size[1]))
+  i = 0
+  for path in data_paths:
+    with open(path, 'rb') as fin:
+      _bin = fin.read()
+      lfw_bins.append(_bin)
+      #img = mx.image.imdecode(_bin)
+      #img = nd.transpose(img, axes=(2, 0, 1))
+      #lfw_data[i][:] = img
+      i+=1
+      if i%1000==0:
+        print('loading data', i)
 
-lfw_bins = []
-#lfw_data = nd.empty((len(lfw_paths), 3, image_size[0], image_size[1]))
-i = 0
-for path in data_paths:
-  with open(path, 'rb') as fin:
-    _bin = fin.read()
-    lfw_bins.append(_bin)
-    #img = mx.image.imdecode(_bin)
-    #img = nd.transpose(img, axes=(2, 0, 1))
-    #lfw_data[i][:] = img
-    i+=1
-    if i%1000==0:
-      print('loading data', i)
-
-with open(args.output, 'wb') as f:
-  pickle.dump((lfw_bins, issame_list), f, protocol=pickle.HIGHEST_PROTOCOL)
+  with open(args.output, 'wb') as f:
+    pickle.dump((lfw_bins, issame_list), f, protocol=pickle.HIGHEST_PROTOCOL)
