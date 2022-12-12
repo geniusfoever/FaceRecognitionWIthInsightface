@@ -1,7 +1,7 @@
 # Alignment
 ### Using Insightface Default Detection
 src/align/align_my.py
---indir D:\DataBase\51\lfw --outdir D:\DataBase\51\lfw_output --image-size 112,112
+--indir "E:\dataset\celeba\classed_celeba_original" --outdir  "E:\dataset\celeba\classed_celeba"  --image-size 112,112
 
 # Make .list File
 src/data/face2rec_my.py

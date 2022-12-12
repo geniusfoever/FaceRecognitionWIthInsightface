@@ -10,8 +10,8 @@ import re
 import random
 from tqdm import tqdm
 # 图片数据文件夹
-INPUT_DATA = 'D:/database/51/lfw_output/train'
-pairs_file_path = 'D:/database/51/lfw_output/pairs.txt'
+INPUT_DATA = 'E:/dataset/celeba/classed_celeba'
+pairs_file_path = r'E:/dataset/celeba/pairs.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
@@ -22,7 +22,7 @@ blur_probaility=0.3
 brightness_contrast_probability=0.2
 def produce_same_pairs():
     matched_result = []  # 不同类的匹配对
-    while(len(matched_result)<12000):
+    while(len(matched_result)<24000):
         id_int = random.randint(0, id_nums - 1)
 
         id_dir = os.path.join(INPUT_DATA, idsdir_list[id_int])
@@ -61,8 +61,10 @@ def produce_same_pairs():
         id1_path = os.path.join(id_dir, id1_name + ".jpg")
         id2_path = os.path.join(id_dir,id2_name + ".jpg")
 
+        print(id1_path)
 
         assert os.path.isfile(id1_path)
+
         assert os.path.isfile(id2_path)
         same = 1
         #print([id1_path + '\t' + id2_path + '\t',same])
@@ -75,7 +77,7 @@ def produce_unsame_pairs():
     unmatched_result = []  # 不同类的匹配对
 
 
-    while(len(unmatched_result)<12000):
+    while(len(unmatched_result)<24000):
         id1_int = random.randint(0, id_nums - 1)
         id2_int = random.randint(0, id_nums - 1)
         while id1_int == id2_int:
@@ -129,7 +131,7 @@ if __name__=="__main__":
     #print(all_result)
     print(len(all_result))
 
-    file = open(pairs_file_path, 'a')
+    file = open(pairs_file_path, 'w')
     for line in all_result:
         file.write(line[0] + str(line[1]) + '\n')
 
