@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='Package LFW images')
 # general
 parser.add_argument('--data-dir', default='D:/database/51/lfw_output/', help='')
 parser.add_argument('--image-size', type=str, default='112,112', help='')
-parser.add_argument('--output', default='D:/database/51/lfw_output/validation.bin', help='path to save.')
+parser.add_argument('--output', default='D:/database/51/lfw_output/darkened_pair.bin', help='path to save.')
 args = parser.parse_args()
 lfw_dir = args.data_dir
 image_size = [int(x) for x in args.image_size.split(',')]
@@ -56,7 +56,7 @@ def get_paths(data_dir, pairs, file_ext):
 
 
 if __name__=="__main__":
-  data_pairs = read_pairs(os.path.join(lfw_dir, 'pairs.txt'))
+  data_pairs = read_pairs(os.path.join(lfw_dir, 'darkened_pair.txt'))
   data_paths, issame_list = get_paths(lfw_dir, data_pairs, 'jpg')
   print(len(data_paths))
   print(len(issame_list))

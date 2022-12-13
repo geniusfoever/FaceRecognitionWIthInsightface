@@ -11,15 +11,15 @@ import random
 from tqdm import tqdm
 # 图片数据文件夹
 INPUT_DATA = 'D:/DataBase/51/lfw_output/train'
-pairs_file_path = r'D:/DataBase/51/lfw_output/pairs.txt'
+pairs_file_path = r'D:/DataBase/51/lfw_output/darkened_pair.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
 
 id_nums = len(idsdir_list)
-mask_probability=0.8
-blur_probaility=0.3
-brightness_contrast_probability=0.2
+mask_probability=0
+blur_probaility=0
+brightness_contrast_probability=1
 def produce_same_pairs():
     matched_result = []  # 不同类的匹配对
     while(len(matched_result)<24000):
