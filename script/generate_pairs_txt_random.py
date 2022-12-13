@@ -10,8 +10,8 @@ import re
 import random
 from tqdm import tqdm
 # 图片数据文件夹
-INPUT_DATA = 'E:/dataset/celeba/classed_celeba'
-pairs_file_path = r'E:/dataset/celeba/pairs.txt'
+INPUT_DATA = 'D:/DataBase/51/lfw_output/train'
+pairs_file_path = r'D:/DataBase/51/lfw_output/pairs.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
@@ -43,7 +43,7 @@ def produce_same_pairs():
         for _ in range(10):
             id1_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
             id2_img_file = imgs_index_list[random.randint(0, id_list_len - 1)]%100000000
-            if id1_img_file==id2_img_file: break
+            if id1_img_file!=id2_img_file: break
         else: continue
 
         for _ in range(10):
