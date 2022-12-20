@@ -88,7 +88,7 @@ def change_contrast_brightness(walk_args):
 
         split_path = f.rsplit(".")
         img_index=int(split_path[0])
-        if img_index>400000000:
+        if img_index<400000000:
             continue
 
         image_path = path + "/" + f
