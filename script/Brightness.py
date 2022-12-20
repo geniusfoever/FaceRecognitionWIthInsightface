@@ -1,4 +1,5 @@
 import random
+import sys
 
 import cv2
 import argparse
@@ -12,7 +13,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--path",
     type=str,
-    default=r"D:\DataBase\51\lfw_output",
+    default=r"D:\DataBase\51\lfw_testing",
     help="Path to either the folder containing images or the image itself",
 )
 parser.add_argument(
@@ -23,47 +24,57 @@ parser.add_argument(
 parser.add_argument(
     "--process",
     type=int,
-    default=16,
+    default=1,
 )
 args = parser.parse_args()
-def controller(img, brightness=255,
-               contrast=127):
-    brightness = int((brightness - 0) * (255 - (-255)) / (510 - 0) + (-255))
+def controller(img, brightness=0.5,
+               contrast=1.):
 
-    contrast = int((contrast - 0) * (127 - (-127)) / (254 - 0) + (-127))
+    cal = cv2.addWeighted(img, brightness,
+                          img, 0, 1-brightness)
 
-    if brightness != 0:
 
-        if brightness > 0:
 
-            shadow = brightness
 
-            max = 255
 
-        else:
 
-            shadow = 0
-            max = 255 + brightness
 
-        al_pha = (max - shadow) / 255
-        ga_mma = shadow
 
-        # The function addWeighted calculates
-        # the weighted sum of two arrays
-        cal = cv2.addWeighted(img, al_pha,
-                              img, 0, ga_mma)
 
-    else:
-        cal = img
+    #
+    # lab = cv2.cvtColor(cal, cv2.COLOR_BGR2LAB)
+    # l_channel, a, b = cv2.split(lab)
+    #
+    # # Applying CLAHE to L-channel
+    # # feel free to try different values for the limit and grid size:
+    # clahe = cv2.createCLAHE(clipLimit=2, tileGridSize=(1, 1))
+    # cl = clahe.apply(l_channel)
+    #
+    # # merge the CLAHE enhanced L-channel with the a and b channel
+    # limg = cv2.merge((cl, a, b))
+    #
+    # # Converting image from LAB Color model to BGR color spcae
+    # enhanced_img = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
+    # cal=cv2.addWeighted(cal,0,enhanced_img,1,0)
+    # Stacking the original image with the enhanced image
 
-    if contrast != 0:
-        Alpha = float(131 * (contrast + 127)) / (127 * (131 - contrast))
-        Gamma = 127 * (1 - Alpha)
 
-        # The function addWeighted calculates
-        # the weighted sum of two arrays
-        cal = cv2.addWeighted(cal, Alpha,
-                              cal, 0, Gamma)
+    # The function addWeighted calculates
+    # the weighted sum of two arrays
+    # cal = cv2.addWeighted(img, brightness,
+    #                       img, 0, 1-brightness)
+    #
+    # cal = cv2.addWeighted(cal, contrast, cal, 0, Gamma)
+    #
+    # cal = cv2.addWeighted(cal, Alpha,
+    #                       cal, 0, Gamma)
+    # #
+    # if contrast != 0:
+    #     Alpha = float(131 * (contrast + 127)) / (127 * (131 - contrast))
+    #     Gamma = 127 * (1 - Alpha)
+    #
+    #     # The function addWeighted calculates
+    #     # the weighted sum of two arrays
 
     return cal
 def change_contrast_brightness(walk_args):
@@ -79,32 +90,30 @@ def change_contrast_brightness(walk_args):
         img_index=int(split_path[0])
         if img_index>400000000:
             continue
-        elif img_index+400000000 in img_index_list:
-            pass
+
         image_path = path + "/" + f
 
         #write_path = os.path.join(my_args.outpath, os.path.relpath(path, my_args.path))
 
         img = cv2.imread(image_path)
-        brightness=random.randrange(175,340)
-        contrast=random.randrange(75,190)
+        brightness=random.random()/1.3
+        contrast=random.random()*2
         img=controller(img,brightness,contrast)
         # Save the outputs.
-        w_path = (
-                path
-                + "/"
-                + str(int(split_path[0])+400000000)
+        # cv2.imshow(f,img)
+        # cv2.waitKey(0)
+        cv2.imwrite(image_path, img)
+        # print(image_path)
 
-                + "."
-                + split_path[1]
-        )
-        cv2.imwrite(w_path, img)
+
+
 from multiprocessing import Pool
 
 from itertools import repeat
 from functools import partial
 if __name__ == "__main__":
-    # for walk in os.walk(args.path,followlinks=True):
+    # for walk in os.walk(args.path,followlinks=
+    # True):
     #     add_mask(walk,args)
     #print  (list(zip(os.walk(args.path, followlinks=True), repeat(args))))
     func=partial(change_contrast_brightness)
@@ -126,7 +135,6 @@ if __name__ == "__main__":
                     print(name)
                     for name in next(os.walk(root))[1]:
                         direct_list.append(os.path.join(root, name))
-
         for root in direct_list:
             with Pool(processes=args.process) as pool:
                 pool.map(func, zip(os.walk(root), repeat((args))))
