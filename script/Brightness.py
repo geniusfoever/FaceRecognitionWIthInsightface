@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--path",
     type=str,
-    default=r"D:\DataBase\51\lfw_testing",
+    default=r"E:\dataset\lfw_output",
     help="Path to either the folder containing images or the image itself",
 )
 parser.add_argument(
@@ -85,24 +85,26 @@ def change_contrast_brightness(walk_args):
         img_index_list.append(int(split_path[0]))
     # Process files in the directory if any
     for f in files:
+        image_path = path + "/" + f
 
         split_path = f.rsplit(".")
         img_index=int(split_path[0])
-        if img_index<400000000:
+        if img_index>=600000000:
+            os.remove(image_path)
+        if img_index>=300000000:
             continue
 
-        image_path = path + "/" + f
 
-        #write_path = os.path.join(my_args.outpath, os.path.relpath(path, my_args.path))
+        write_path = os.path.join(path, f"{img_index+400000000}.jpg")
 
         img = cv2.imread(image_path)
-        brightness=random.random()/1.3
+        brightness=(random.random()+0.3)/1.5
         contrast=random.random()*2
         img=controller(img,brightness,contrast)
         # Save the outputs.
         # cv2.imshow(f,img)
         # cv2.waitKey(0)
-        cv2.imwrite(image_path, img)
+        cv2.imwrite(write_path, img)
         # print(image_path)
 
 

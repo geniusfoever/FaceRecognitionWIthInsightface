@@ -10,8 +10,8 @@ import re
 import random
 from tqdm import tqdm
 # 图片数据文件夹
-INPUT_DATA = 'D:/DataBase/51/lfw_output/train'
-pairs_file_path = r'D:/DataBase/51/lfw_output/darkened_pair.txt'
+INPUT_DATA = 'E:/dataset/lfw_output/train'
+pairs_file_path = r'E:/dataset/lfw_output/darkened_pair.txt'
 
 rootdir_list = os.listdir(INPUT_DATA)
 idsdir_list = [name for name in rootdir_list if os.path.isdir(os.path.join(INPUT_DATA, name))]
