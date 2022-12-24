@@ -137,6 +137,5 @@ if __name__ == "__main__":
                         direct_list.append(os.path.join(root, name))
         for root in direct_list:
             with Pool(processes=args.process) as pool:
-                pool.map(func, zip(os.walk(root), repeat((args))))
-
+                tqdm.tqdm(pool.map(func, zip(os.walk(root), repeat((args)))), total=30)
 
