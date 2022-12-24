@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--path",
     type=str,
-    default=r"D:\DataBase\51\lfw_testing",
+    default=r"E:\dataset\glint",
     help="Path to either the folder containing images or the image itself",
 )
 parser.add_argument(
@@ -24,7 +24,7 @@ parser.add_argument(
 parser.add_argument(
     "--process",
     type=int,
-    default=1,
+    default=12,
 )
 args = parser.parse_args()
 def controller(img, brightness=0.5,
@@ -96,7 +96,7 @@ def change_contrast_brightness(walk_args):
         #write_path = os.path.join(my_args.outpath, os.path.relpath(path, my_args.path))
 
         img = cv2.imread(image_path)
-        brightness=random.random()/1.3
+        brightness=random.random()/2+0.3
         contrast=random.random()*2
         img=controller(img,brightness,contrast)
         # Save the outputs.
@@ -137,5 +137,7 @@ if __name__ == "__main__":
                         direct_list.append(os.path.join(root, name))
         for root in direct_list:
             with Pool(processes=args.process) as pool:
-                tqdm.tqdm(pool.map(func, zip(os.walk(root), repeat((args)))), total=30)
+                list(tqdm(pool.map(func, zip(os.walk(root), repeat((args)))), total=73382*10))
+
+
 

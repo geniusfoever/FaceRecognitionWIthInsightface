@@ -32,7 +32,7 @@ def produce_same_pairs():
 
         id_list_len = len(id_imgs_list)
 
-
+        if id_list_len<1: continue
         for _ in range(10):
             id1_img_file = id_imgs_list[random.randint(0, id_list_len - 1)]
             id2_img_file = id_imgs_list[random.randint(0, id_list_len - 1)]
